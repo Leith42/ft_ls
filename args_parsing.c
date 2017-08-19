@@ -79,7 +79,7 @@ static int stocks_args(char **argv, t_flags *flags)
 		}
 		y++;
 	}
-	return (true);
+	return (flags->paths == NULL ? stocks_path(".", flags) : true);
 }
 
 t_flags		*args_parsing(char **argv)
