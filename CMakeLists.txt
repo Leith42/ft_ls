@@ -3,7 +3,9 @@ set(CMAKE_C_STANDARD 99)
 
 set(SOURCE_FILES
         main.c
-        args_parsing.c)
+        args_parsing.c
+        freedom.c
+        )
 
 add_executable(ft_ls ${SOURCE_FILES})
 
