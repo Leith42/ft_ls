@@ -13,14 +13,13 @@ static void	print_args_values(t_flags *flags)
 
 int main(int argc, char **argv)
 {
-	t_flags		*flags;
-	struct stat	stat;
+	t_flags *flags;
 
 	if ((flags = args_parsing(argv)) == NULL)
 	{
 		exit(EXIT_FAILURE);
 	}
 	//recursive(flags);
-	print_args_values(flags);
+	//print_args_values(flags);
 	free_flags(flags);
 }

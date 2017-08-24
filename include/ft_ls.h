@@ -55,6 +55,6 @@ t_flags		*args_parsing(char **argv);
 ** UTILS:
 */
 
-void		free_flags(t_flags *flags);
+void		free_flags(t_flags *f);
 
 #endif

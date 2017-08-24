@@ -66,7 +66,7 @@ static int	stocks_path(char *argv, t_flags *flags)
 	{
 		return (false);
 	}
-	if (tmp == NULL)
+	if (flags->paths == NULL)
 	{
 		flags->paths = new_path;
 	}
@@ -120,7 +120,7 @@ t_flags		*args_parsing(char **argv)
 		|| args_validity(argv) == false
 		|| stocks_args(argv, flags) == false)
 	{
-		//free_flags(flags);
+		free_flags(flags);
 		return (NULL);
 	}
 	return (flags);
