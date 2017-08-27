@@ -25,50 +25,41 @@ static int	args_validity(char **argv)
 	return (true);
 }
 
-/*static t_type get_path_type(struct stat statbuf)
+static int 	get_path_data(t_file *file)
 {
-	if (S_ISDIR(statbuf.st_mode) == true)
-		return (DIRECTORY);
-	else if (S_ISBLK(statbuf.st_mode) == true)
-		return (BLOCK);
-	else if (S_ISCHR(statbuf.st_mode) == true)
-		return (CHARACTER);
-	else if (S_ISFIFO(statbuf.st_mode) == true)
-		return (FIFO);
-	else if (S_ISLNK(statbuf.st_mode) == true)
-		return (SYMBOLIC);
-	else if (S_ISREG(statbuf.st_mode) == true)
-		return (REGULAR);
-	else if (S_ISSOCK(statbuf.st_mode) == true)
-		return (SOCKET);
-	else
-		return (UNKNOWN);
-}*/
-
-static int 	get_path_data(t_path *path)
-{
-	if ((lstat(path->name, &path->statbuf)) < 0)
-	{
-		perror("stat");
-		return (false);
-	}
+	if ((lstat(file->path, &file->statbuf)) < 0)
+		file->type = UNKNOWN;
+	else if (S_ISREG(file->statbuf.st_mode) == true)
+		file->type = REGULAR;
+	else if (S_ISDIR(file->statbuf.st_mode) == true)
+		file->type = DIRECTORY;
+	else if (S_ISLNK(file->statbuf.st_mode) == true)
+		file->type = SYMBOLIC;
+	else if (S_ISBLK(file->statbuf.st_mode) == true)
+		file->type = BLOCK;
+	else if (S_ISCHR(file->statbuf.st_mode) == true)
+		file->type = CHARACTER;
+	else if (S_ISFIFO(file->statbuf.st_mode) == true)
+		file->type = FIFO;
+	else if (S_ISSOCK(file->statbuf.st_mode) == true)
+		file->type = SOCKET;
 	return (true);
 }
 
 static int	stocks_path(char *argv, t_flags *flags)
 {
-	t_path *new_path;
-	t_path *tmp;
+	t_file *new_path;
+	t_file *tmp;
 
-	tmp = flags->paths;
-	if ((new_path = ft_memalloc(sizeof(t_path))) == NULL
-		|| (new_path->name = ft_strdup(argv)) == NULL)
+	tmp = flags->file;
+	if ((new_path = ft_memalloc(sizeof(t_file))) == NULL
+		|| (new_path->path = ft_strdup(argv)) == NULL)
 	{
 		return (false);
 	}
-	if (flags->paths == NULL)
+	if (flags->file == NULL)
 	{
-		flags->paths = new_path;
+		flags->file = new_path;
 	}
 	else
 	{
@@ -78,7 +69,7 @@ static int	stocks_path(char *argv, t_flags *flags)
 		}
 		tmp->next = new_path;
 	}
-	flags->n_paths++;
+	flags->n_file++;
 	return (get_path_data(new_path));
 }
 
@@ -109,7 +100,7 @@ static int stocks_args(char **argv, t_flags *flags)
 		}
 		y++;
 	}
-	return (flags->paths == NULL ? stocks_path(".", flags) : true);
+	return (flags->file == NULL ? stocks_path(".", flags) : true);
 }
 
 t_flags		*args_parsing(char **argv)

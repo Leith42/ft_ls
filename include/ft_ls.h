@@ -14,25 +14,28 @@
 ** STRUCTS:
 */
 
-typedef	enum	e_type
-{
-	UNKNOWN,
-	DIRECTORY,
-	REGULAR,
-	BLOCK,
-	CHARACTER,
-	NETWORK,
-	FIFO,
-	SYMBOLIC,
-	SOCKET
-}				t_type;
+# define DIRECTORY	'd'
+# define REGULAR	'-'
+# define BLOCK		'b'
+# define CHARACTER	'c'
+# define FIFO		'p'
+# define SYMBOLIC	'l'
+# define SOCKET		's'
+# define UNKNOWN	'?'
 
-typedef	struct	s_path
+typedef enum 	e_error
 {
-	const char		*name;
+	NOT_FOUND
+}				t_error;
+
+typedef	struct	s_file
+{
+	char			type;
+	char			*path;
+	//char			*name;
 	struct stat		statbuf;
-	struct s_path	*next;
-}				t_path;
+	struct s_file	*next;
+}				t_file;
 
 typedef	struct	s_flags
 {
@@ -41,8 +44,8 @@ typedef	struct	s_flags
 	bool		reverse_sort;
 	bool		time_sort;
 	bool		all;
-	t_path		*paths;
-	size_t		n_paths;
+	t_file		*file;
+	size_t		n_file;
 }				t_flags;
 
 /*
@@ -56,5 +59,6 @@ t_flags		*args_parsing(char **argv);
 */
 
 void		free_flags(t_flags *f);
+void		print_error(t_error err, char *s);
 
 #endif

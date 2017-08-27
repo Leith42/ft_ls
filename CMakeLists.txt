@@ -5,6 +5,7 @@ set(SOURCE_FILES
         main.c
         args_parsing.c
         freedom.c
+        error.c
         )
 
 add_executable(ft_ls ${SOURCE_FILES})

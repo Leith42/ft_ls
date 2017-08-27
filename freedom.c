@@ -2,15 +2,16 @@
 
 void	free_flags(t_flags *f)
 {
-	t_path *tmp;
+	t_file *tmp;
 
 	if (f != NULL)
 	{
-		while (f->paths != NULL)
+		while (f->file != NULL)
 		{
-			tmp = f->paths;
-			f->paths = f->paths->next;
-			ft_memdel((void **)&tmp->name);
+			tmp = f->file;
+			f->file = f->file->next;
+			ft_memdel((void **)&tmp->path);
+			//ft_memdel((void **)&tmp->name);
 			ft_memdel((void **)&tmp);
 			//free((void *)tmp->name);
 			//free(tmp);
