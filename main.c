@@ -12,41 +12,60 @@ static void	print_args_values(t_flags *flags)
 	}
 }
 
-int simple_file_display(t_flags *flags)
+void	simple_file_display(t_file *file)
 {
-	t_file *tmp;
-
-	tmp = flags->file;
-	while (flags->file)
+	while (file != NULL)
 	{
-		if (flags->file->type != DIRECTORY)
-		{
-			ft_printf("%s\n", flags->file->path);
-		}
-		flags->file = flags->file->next;
-	}
-	flags->file = tmp;
-	return (true);
-}
-
-void	print_not_found(t_file *f)
-{
-	while (f->path != NULL)
-	{
-		if (f->path->type == UNKNOWN)
-		{
-
-		}
+		ft_printf("{GREEN}%s{EOC}\n", file->path);
+		file = file->next;
 	}
 }
-//TODO: SORTING ALGORITHM, ORGANISATION OF THE STRUCTURES.
+
+void	print_not_found(t_file *not_found)
+{
+	while (not_found != NULL)
+	{
+		ft_printf("ls: {GREEN}%s{EOC}: No such file or directory\n", \
+				  not_found->path);
+		not_found = not_found->next;
+	}
+}
+
+void	long_file_display(t_flags *f, t_size s)
+{
+	while (f->file != NULL)
+	{
+		if (!(f->l_display == false && f->file->path[0] == '.'))
+		{
+			print_access(f->file);
+			print_links(f->file->statbuf.st_nlink, s.link_pad);
+			print_usr(f->file->statbuf.st_uid, s.user_pad);
+			print_grp(f->file->statbuf.st_gid, s.group_pad);
+			print_size(f->file->statbuf.st_size, s.size);
+		}
+		f->file = f->file->next;
+	}
+}
+
 int ft_ls(t_flags *flags)
 {
-	t_list *file;
-	t_list *directory;
-
-	print_not_found(flags->file);
-	simple_file_display(flags);
+	print_not_found(flags->not_found);
+	if (flags->file != NULL)
+	{
+		if (flags->l_display == false)
+			simple_file_display(flags->file);
+		else
+			long_file_display(flags, get_size(flags->file, flags));
+		if (flags->dir != NULL)
+			ft_putchar('\n');
+	}
+	/*if (flags->dir != NULL)
+	{
+		if (flags->l_display == false);
+			//simple_dir_display(flags->dir);
+		else
+			long_dir_display(flags->dir);
+	}*/
 	return (true);
 }
 
@@ -54,11 +73,13 @@ int main(int argc, char **argv)
 {
 	t_flags *flags;
 
+	sort(argv);
 	if ((flags = args_parsing(argv)) == NULL)
 	{
 		exit(EXIT_FAILURE);
 	}
 	ft_ls(flags);
+	//printf("dir: %ld\nfile: %ld\n", flags->dir_nb, flags->file_nb);
 	//print_args_values(flags);
 	free_flags(flags);
 	return (true);

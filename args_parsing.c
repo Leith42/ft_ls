@@ -46,31 +46,38 @@ static int 	get_path_data(t_file *file)
 	return (true);
 }
 
+static void	file_new(t_file **lst, t_file *new)
+{
+	t_file *tmp;
+
+	tmp = *lst;
+	if (*lst == NULL)
+		*lst = new;
+	else
+	{
+		while (tmp->next != NULL)
+			tmp = tmp->next;
+		tmp->next = new;
+	}
+}
+
 static int	stocks_path(char *argv, t_flags *flags)
 {
 	t_file *new_path;
-	t_file *tmp;
 
-	tmp = flags->file;
 	if ((new_path = ft_memalloc(sizeof(t_file))) == NULL
 		|| (new_path->path = ft_strdup(argv)) == NULL)
 	{
 		return (false);
 	}
-	if (flags->file == NULL)
-	{
-		flags->file = new_path;
-	}
+	get_path_data(new_path);
+	if (new_path->type == DIRECTORY)
+		file_new(&flags->dir, new_path);
+	else if (new_path->type == UNKNOWN)
+		file_new(&flags->not_found, new_path);
 	else
-	{
-		while (tmp->next != NULL)
-		{
-			tmp = tmp->next;
-		}
-		tmp->next = new_path;
-	}
-	flags->n_file++;
-	return (get_path_data(new_path));
+		file_new(&flags->file, new_path);
+	return (true);
 }
 
 static int stocks_args(char **argv, t_flags *flags)

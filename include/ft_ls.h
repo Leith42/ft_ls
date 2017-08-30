@@ -45,8 +45,20 @@ typedef	struct	s_flags
 	bool		time_sort;
 	bool		all;
 	t_file		*file;
-	size_t		n_file;
+	t_file		*dir;
+	t_file		*not_found;
+	size_t		file_nb;
+	size_t 		dir_nb;
 }				t_flags;
+
+typedef struct	s_size
+{
+	int 		total;
+	int 		size;
+	int			link_pad;
+	int 		group_pad;
+	int 		user_pad;
+}				t_size;
 
 /*
 ** PARSING:
@@ -61,4 +73,17 @@ t_flags		*args_parsing(char **argv);
 void		free_flags(t_flags *f);
 void		print_error(t_error err, char *s);
 
+/*
+** SORTING
+*/
+
+void		sort(char **tab);
+
+void	print_grp(gid_t gid, int pad);
+void	print_usr(uid_t uid, int pad);
+void	print_links(int links, int pad);
+void	print_access(t_file *f);
+void	print_size(off_t size, int pad);
+
+t_size	get_size(t_file *f, t_flags *flags);
 #endif

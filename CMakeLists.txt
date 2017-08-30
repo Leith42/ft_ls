@@ -6,6 +6,9 @@ set(SOURCE_FILES
         args_parsing.c
         freedom.c
         error.c
+        alpha_sort.c
+        long_display.c
+        size.c
         )
 
 add_executable(ft_ls ${SOURCE_FILES})
