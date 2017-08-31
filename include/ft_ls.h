@@ -9,11 +9,10 @@
 # include <grp.h>
 # include <time.h>
 # include <fcntl.h>
+# include <stdbool.h>
 
-/*
-** STRUCTS:
-*/
-
+# define major(x)((int32_t)(((u_int32_t)(x) >> 24) & 0xff))
+# define minor(x)((int32_t)((x) & 0xffffff))
 # define DIRECTORY	'd'
 # define REGULAR	'-'
 # define BLOCK		'b'
@@ -54,10 +53,12 @@ typedef	struct	s_flags
 typedef struct	s_size
 {
 	int 		total;
-	int 		size;
+	int 		size_pad;
 	int			link_pad;
 	int 		group_pad;
 	int 		user_pad;
+	int 		min_pad;
+	int 		maj_pad;
 }				t_size;
 
 /*
@@ -83,7 +84,9 @@ void	print_grp(gid_t gid, int pad);
 void	print_usr(uid_t uid, int pad);
 void	print_links(int links, int pad);
 void	print_access(t_file *f);
-void	print_size(off_t size, int pad);
+void	print_size(off_t size, t_size s);
+void	print_special_id(dev_t id, int min_pad, int maj_pad);
+void	print_date(time_t date);
 
 t_size	get_size(t_file *f, t_flags *flags);
 #endif

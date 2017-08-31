@@ -1,5 +1,22 @@
 #include "ft_ls.h"
 
+static void	get_special_id_size(t_size *s, t_file *f)
+{
+	int min_len;
+	int maj_len;
+
+	min_len = (int)ft_nblen(minor(f->statbuf.st_rdev), BASE_DECIMAL);
+	maj_len = (int)ft_nblen(major(f->statbuf.st_rdev), BASE_DECIMAL);
+	if (s->min_pad < min_len)
+	{
+		s->min_pad = min_len;
+	}
+	if (s->maj_pad < maj_len)
+	{
+		s->maj_pad = maj_len;
+	}
+}
+
 static void	get_usr_size(t_size *s, t_file *f)
 {
 	int pw_name;
@@ -49,12 +66,13 @@ static void	get_current(t_file *f, t_size *s)
 	{
 		s->link_pad = link_pad;
 	}
-	if (s->size < size)
+	if (s->size_pad < size)
 	{
-		s->size = size;
+		s->size_pad = size;
 	}
 	get_grp_size(s, f);
 	get_usr_size(s, f);
+	get_special_id_size(s, f);
 	s->total += f->statbuf.st_blocks;
 }
 
@@ -65,7 +83,7 @@ t_size	get_size(t_file *f, t_flags *flags)
 	ft_bzero(&size, sizeof(t_size));
 	while (f != NULL)
 	{
-		if (!(flags->l_display == true && f->path[0] != '.'))
+		if (!(flags->all == false && f->path[0] == '.'))
 		{
 			get_current(f, &size);
 		}

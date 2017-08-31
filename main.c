@@ -1,5 +1,6 @@
 #include "ft_ls.h"
 
+/*
 static void	print_args_values(t_flags *flags)
 {
 	printf ("-l: %d\n-r: %d\n-R: %d\n-a: %d\n-t: %d\n\n",
@@ -11,7 +12,7 @@ static void	print_args_values(t_flags *flags)
 		flags->file = flags->file->next;
 	}
 }
-
+*/
 void	simple_file_display(t_file *file)
 {
 	while (file != NULL)
@@ -41,7 +42,16 @@ void	long_file_display(t_flags *f, t_size s)
 			print_links(f->file->statbuf.st_nlink, s.link_pad);
 			print_usr(f->file->statbuf.st_uid, s.user_pad);
 			print_grp(f->file->statbuf.st_gid, s.group_pad);
-			print_size(f->file->statbuf.st_size, s.size);
+			if (f->file->type == CHARACTER || f->file->type == BLOCK)
+			{
+				print_special_id(f->file->statbuf.st_rdev, s.min_pad, s.maj_pad);
+			}
+			else
+			{
+				print_size(f->file->statbuf.st_size, s);
+			}
+			print_date(f->file->statbuf.st_mtime);
+			ft_putendl(f->file->path);
 		}
 		f->file = f->file->next;
 	}
