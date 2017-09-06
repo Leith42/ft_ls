@@ -1,9 +1,7 @@
 #include "ft_ls.h"
 
-void	print_error(t_error err, char *s)
+void	print_error(char *error, char *name)
 {
-	if (err == NOT_FOUND)
-	{
-		ft_printf("ft_ls: %s: No such file or directory\n", s);
-	}
+	ft_putstr_fd(name, 2);
+	perror(error);
 }

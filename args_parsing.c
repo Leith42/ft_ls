@@ -25,62 +25,35 @@ static int	args_validity(char **argv)
 	return (true);
 }
 
-static int 	get_path_data(t_file *file)
+int	stocks_path(char *argv, t_list **paths)
 {
-	if ((lstat(file->path, &file->statbuf)) < 0)
-		file->type = UNKNOWN;
-	else if (S_ISREG(file->statbuf.st_mode) == true)
-		file->type = REGULAR;
-	else if (S_ISDIR(file->statbuf.st_mode) == true)
-		file->type = DIRECTORY;
-	else if (S_ISLNK(file->statbuf.st_mode) == true)
-		file->type = SYMBOLIC;
-	else if (S_ISBLK(file->statbuf.st_mode) == true)
-		file->type = BLOCK;
-	else if (S_ISCHR(file->statbuf.st_mode) == true)
-		file->type = CHARACTER;
-	else if (S_ISFIFO(file->statbuf.st_mode) == true)
-		file->type = FIFO;
-	else if (S_ISSOCK(file->statbuf.st_mode) == true)
-		file->type = SOCKET;
-	return (true);
-}
+	t_list *tmp;
 
-static void	file_new(t_file **lst, t_file *new)
-{
-	t_file *tmp;
-
-	tmp = *lst;
-	if (*lst == NULL)
-		*lst = new;
+	tmp = *paths;
+	if (tmp == NULL)
+	{
+		if ((*paths = ft_lstnew(argv, ft_strlen(argv) + 1)) == NULL)
+		{
+			print_error("malloc", "ft_ls: ");
+			exit(EXIT_FAILURE);
+		}
+	}
 	else
 	{
 		while (tmp->next != NULL)
+		{
 			tmp = tmp->next;
-		tmp->next = new;
+		}
+		if ((tmp->next = ft_lstnew(argv, ft_strlen(argv) + 1)) == NULL)
+		{
+			print_error("malloc", "ft_ls: ");
+			exit(EXIT_FAILURE);
+		}
 	}
-}
-
-static int	stocks_path(char *argv, t_flags *flags)
-{
-	t_file *new_path;
-
-	if ((new_path = ft_memalloc(sizeof(t_file))) == NULL
-		|| (new_path->path = ft_strdup(argv)) == NULL)
-	{
-		return (false);
-	}
-	get_path_data(new_path);
-	if (new_path->type == DIRECTORY)
-		file_new(&flags->dir, new_path);
-	else if (new_path->type == UNKNOWN)
-		file_new(&flags->not_found, new_path);
-	else
-		file_new(&flags->file, new_path);
 	return (true);
 }
 
-static int stocks_args(char **argv, t_flags *flags)
+static int stocks_args(char **argv, t_options *o, t_list **paths)
 {
 	int y;
 
@@ -90,36 +63,32 @@ static int stocks_args(char **argv, t_flags *flags)
 		if (argv[y][0] == '-' && argv[y][1] != '\0')
 		{
 			if (ft_strchr(argv[y], 'l') != NULL)
-				flags->l_display = 1;
+				o->l_display = 1;
 			if (ft_strchr(argv[y], 'r') != NULL)
-				flags->reverse_sort = 1;
+				o->reverse_sort = 1;
 			if (ft_strchr(argv[y], 'R') != NULL)
-				flags->recursive = 1;
+				o->recursive = 1;
 			if (ft_strchr(argv[y], 'a') != NULL)
-				flags->all = 1;
+				o->all = 1;
 			if (ft_strchr(argv[y], 't') != NULL)
-				flags->time_sort = 1;
+				o->time_sort = 1;
 		}
 		else
 		{
-			if (stocks_path(argv[y], flags) == false)
-				return (false);
+			stocks_path(argv[y], paths);
 		}
 		y++;
 	}
-	return (flags->file == NULL ? stocks_path(".", flags) : true);
+	return (*paths == NULL ? stocks_path(".", paths) : true);
 }
 
-t_flags		*args_parsing(char **argv)
+int	args_parsing(char **argv, t_options *o, t_list **paths)
 {
-	t_flags *flags;
-
-	if ((flags = ft_memalloc(sizeof(t_flags))) == NULL
-		|| args_validity(argv) == false
-		|| stocks_args(argv, flags) == false)
+	if (args_validity(argv) == false
+		|| stocks_args(argv, o, paths) == false)
 	{
-		free_flags(flags);
-		return (NULL);
+		//free_flags(flags);
+		return (false);
 	}
-	return (flags);
+	return (true);
 }

@@ -29,26 +29,20 @@ typedef enum 	e_error
 
 typedef	struct	s_file
 {
-	char			type;
 	char			*path;
-	//char			*name;
+	char			*name;
 	struct stat		statbuf;
 	struct s_file	*next;
 }				t_file;
 
-typedef	struct	s_flags
+typedef	struct	s_options
 {
 	bool		l_display;
 	bool		recursive;
 	bool		reverse_sort;
 	bool		time_sort;
 	bool		all;
-	t_file		*file;
-	t_file		*dir;
-	t_file		*not_found;
-	size_t		file_nb;
-	size_t 		dir_nb;
-}				t_flags;
+}				t_options;
 
 typedef struct	s_size
 {
@@ -65,21 +59,24 @@ typedef struct	s_size
 ** PARSING:
 */
 
-t_flags		*args_parsing(char **argv);
+int	args_parsing(char **argv, t_options *o, t_list **paths);
 
 /*
 ** UTILS:
 */
 
-void		free_flags(t_flags *f);
-void		print_error(t_error err, char *s);
+void		free_lst(t_list *paths);
+void		print_error(char *error, char *name);
 
 /*
 ** SORTING
 */
 
-void		sort(char **tab);
-
+void	sort(t_file **list, int (*cmp)(t_file *f1, t_file *f2));
+void	reverse_sort(t_file **f);
+int 	path_cmp(t_file *a, t_file *b);
+int 	time_cmp(t_file *a, t_file *b);
+void	free_file(t_file **f);
 void	print_grp(gid_t gid, int pad);
 void	print_usr(uid_t uid, int pad);
 void	print_links(int links, int pad);
@@ -87,6 +84,18 @@ void	print_access(t_file *f);
 void	print_size(off_t size, t_size s);
 void	print_special_id(dev_t id, int min_pad, int maj_pad);
 void	print_date(time_t date);
+void 	print_name(const char *name, int type);
+void	display_file(t_file *f, t_options o);
+void	long_file_display(t_file *f, t_size s, t_options o);
+void	long_dir_display();
+void	simple_file_display(t_file *file, t_options o);
+t_size	get_size(t_file *f, t_options o);
+int		stocks_path(char *argv, t_list **paths);
+void	get_files(t_file **file, char *name, char *path);
+void	handle_file(t_list *paths, t_options o);
+void	handle_dir(t_list *paths, t_options o);
+int		get_dir_content(t_file **files, struct dirent *dir, char *path);
+void	recursive(t_file *f, t_options o);
+t_file	*open_and_get(t_file *dir);
 
-t_size	get_size(t_file *f, t_flags *flags);
 #endif

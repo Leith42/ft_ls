@@ -1,32 +1,29 @@
 #include "ft_ls.h"
 
-void	free_flags(t_flags *f)
+void	lstdel(void *content, size_t n)
 {
-	t_file *tmp;
-
-	if (f != NULL)
+	if (content != NULL)
 	{
-		while (f->file != NULL)
-		{
-			tmp = f->file;
-			f->file = f->file->next;
-			ft_memdel((void **)&tmp->path);
-			ft_memdel((void **)&tmp);
-		}
-		while (f->dir != NULL)
-		{
-			tmp = f->dir;
-			f->dir = f->dir->next;
-			ft_memdel((void **)&tmp->path);
-			ft_memdel((void **)&tmp);
-		}
-		while (f->not_found != NULL)
-		{
-			tmp = f->not_found;
-			f->not_found = f->not_found->next;
-			ft_memdel((void **)&tmp->path);
-			ft_memdel((void **)&tmp);
-		}
-		ft_memdel((void **)&f);
+		ft_memdel(&content);
 	}
+	(void)n;
+}
+
+void	free_file(t_file **f)
+{
+	void *tmp;
+
+	while (f && *f)
+	{
+		tmp = *f;
+		ft_strdel(&(*f)->path);
+		ft_strdel(&(*f)->name);
+		*f = (*f)->next;
+		ft_memdel(&tmp);
+	}
+}
+
+void	free_lst(t_list *paths)
+{
+	ft_lstdel(&paths, lstdel);
 }

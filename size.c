@@ -70,20 +70,23 @@ static void	get_current(t_file *f, t_size *s)
 	{
 		s->size_pad = size;
 	}
+	if (S_ISBLK(f->statbuf.st_mode) || S_ISCHR(f->statbuf.st_mode))
+	{
+		get_special_id_size(s, f);
+	}
 	get_grp_size(s, f);
 	get_usr_size(s, f);
-	get_special_id_size(s, f);
 	s->total += f->statbuf.st_blocks;
 }
 
-t_size	get_size(t_file *f, t_flags *flags)
+t_size	get_size(t_file *f, t_options o)
 {
 	t_size size;
 
 	ft_bzero(&size, sizeof(t_size));
 	while (f != NULL)
 	{
-		if (!(flags->all == false && f->path[0] == '.'))
+		if (!(o.all == false && f->name[0] == '.'))
 		{
 			get_current(f, &size);
 		}

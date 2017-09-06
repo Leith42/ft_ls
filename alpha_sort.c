@@ -1,45 +1,65 @@
 #include "ft_ls.h"
 
-static int myCompare (const void * a, const void * b)
+int 		path_cmp(t_file *a, t_file *b)
 {
-	return (ft_strcmp (*(const char **) a, *(const char **) b));
+	return (ft_strcmp (a->path, b->path));
 }
 
-static void	swap(char **a, char **b)
+int 		time_cmp(t_file *a, t_file *b)
 {
-	void *temp;
-
-	temp = *a;
-	*a = *b;
-	*b = temp;
+	return (a->statbuf.st_mtime < b->statbuf.st_mtime);
 }
 
-static int is_sort(char **tab)
+static void	swap(t_file **a, t_file **b)
 {
-	int y;
+	t_file	tmp;
 
-	y = 1;
-	while (tab[y] != NULL)
+	tmp.path = (*a)->path;
+	tmp.name = (*a)->name;
+	tmp.statbuf = (*a)->statbuf;
+	(*a)->path = (*b)->path;
+	(*a)->statbuf = (*b)->statbuf;
+	(*a)->name = (*b)->name;
+	(*b)->path = tmp.path;
+	(*b)->statbuf = tmp.statbuf;
+	(*b)->name = tmp.name;
+}
+
+void		sort(t_file **list, int (*cmp)(t_file *f1, t_file *f2))
+{
+	t_file	*a;
+	t_file	*b;
+
+	a = *list;
+	while (a)
 	{
-		if (tab[y + 1] && strcmp(tab[y], tab[y + 1]) > 0)
-			return (false);
-		y++;
-	}
-	return (true);
-}
-
-void	sort(char **tab)
-{
-	int 	y;
-
-	while (is_sort(tab) == false)
-	{
-		y = 1;
-		while (tab[y] != NULL)
+		b = a->next;
+		while (b)
 		{
-			if (tab[y + 1] && strcmp(tab[y], tab[y + 1]) > 0)
-				swap(&tab[y], &tab[y + 1]);
-			y++;
+			if (cmp(a, b) > 0)
+			{
+				swap(&a, &b);
+			}
+			b = b->next;
 		}
+		a = a->next;
 	}
+}
+
+void	reverse_sort(t_file **file)
+{
+	t_file	*p_file;
+	t_file	*q;
+	t_file	*r;
+
+	p_file = *file;
+	q = NULL;
+	while (p_file != NULL)
+	{
+		r = q;
+		q = p_file;
+		p_file = p_file->next;
+		q->next = r;
+	}
+	*file = q;
 }

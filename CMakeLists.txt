@@ -7,8 +7,14 @@ set(SOURCE_FILES
         freedom.c
         error.c
         alpha_sort.c
-        long_display.c
+        get_struct.c
+        printer.c
         size.c
+        #simple_display.c
+        directories.c
+        files.c
+        printer2.c
+        recursive.c
         )
 
 add_executable(ft_ls ${SOURCE_FILES})
