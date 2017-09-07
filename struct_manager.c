@@ -8,12 +8,12 @@ static t_file	*new_file(char *name, char *path)
 		|| (new->path = ft_strjoin(path, name)) == NULL
 		|| (new->name = ft_strdup(name)) == NULL)
 	{
-		print_error("ft_ls: ", path);
+		print_error(path);
 		exit(EXIT_FAILURE);
 	}
 	if (lstat(new->path, &new->statbuf) < 0)
 	{
-		print_error("ft_ls: ", new->path);
+		print_error(path);
 		exit(EXIT_FAILURE);
 	}
 	return (new);
@@ -31,7 +31,7 @@ int	get_dir_content(t_file **file, struct dirent *dir, char *path)
 	}
 	if (path == NULL)
 	{
-		print_error(dir->d_name, "ft_ls: ");
+		print_error(dir->d_name);
 		exit(EXIT_FAILURE);
 	}
 	if (list)

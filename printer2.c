@@ -1,27 +1,32 @@
 #include "ft_ls.h"
+# define BUF_SIZE 1024
 
-void 	print_name(const char *name, int type)
+void 	print_name(t_file *f, t_options o)
 {
-	if (S_ISDIR(type))
+	ssize_t len;
+	char link_buf[BUF_SIZE];
+
+	if (S_ISDIR(f->statbuf.st_mode))
+		ft_printf("%s%s%s\n", "\x1b[36m", f->name, "\x1b[0m");
+	else if (S_ISLNK(f->statbuf.st_mode) && o.l_display == true)
 	{
-		ft_printf("{BLUE}%s{EOC}\n", name);
+		if ((len = readlink(f->path, link_buf, BUF_SIZE - 1)) == -1)
+		{
+			print_error(f->path);
+			exit(EXIT_FAILURE);
+		}
+		link_buf[len] = '\0';
+		ft_printf("%s%s%s", "\x1b[35m", f->name, "\x1b[0m");
+		ft_printf(" -> %s\n", link_buf, f->name, f->path);
 	}
-	else if (S_ISREG(type))
-	{
-		ft_printf("{GREEN}%s{EOC}\n", name);
-	}
-	else if (S_ISBLK(type) || S_ISCHR(type))
-	{
-		ft_printf("%s%s%s\n", "\x1b[33m", name, "\x1b[0m");
-	}
-	else if (S_ISLNK(type))
-	{
-		ft_printf("%s%s%s\n", "\x1b[35m", name, "\x1b[0m");
-	}
+	else if (S_ISLNK(f->statbuf.st_mode))
+		ft_printf("%s%s%s\n", "\x1b[35m", f->name, "\x1b[0m");
+	else if (S_ISBLK(f->statbuf.st_mode) || S_ISCHR(f->statbuf.st_mode))
+		ft_printf("%s%s%s\n", "\x1b[33m", f->name, "\x1b[0m");
+	else if (S_ISSOCK(f->statbuf.st_mode))
+		ft_printf("{GREEN}%s{EOC}\n", f->name);
 	else
-	{
-		ft_putendl(name);
-	}
+		ft_putendl(f->name);
 }
 
 void	print_usr(uid_t uid, int pad)
@@ -75,5 +80,4 @@ void	print_access(t_file *f)
 	ft_putchar((f->statbuf.st_mode & S_IROTH) ? 'r' : '-');
 	ft_putchar((f->statbuf.st_mode & S_IWOTH) ? 'w' : '-');
 	ft_putchar((f->statbuf.st_mode & S_IXOTH) ? 'x' : '-');
-	ft_putstr("  ");
 }

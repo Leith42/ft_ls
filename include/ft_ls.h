@@ -66,7 +66,7 @@ int	args_parsing(char **argv, t_options *o, t_list **paths);
 */
 
 void		free_lst(t_list *paths);
-void		print_error(char *error, char *name);
+void		print_error(char *error);
 
 /*
 ** SORTING
@@ -74,7 +74,7 @@ void		print_error(char *error, char *name);
 
 void	sort(t_file **list, int (*cmp)(t_file *f1, t_file *f2));
 void	reverse_sort(t_file **f);
-int 	path_cmp(t_file *a, t_file *b);
+int 	lexic_cmp(t_file *a, t_file *b);
 int 	time_cmp(t_file *a, t_file *b);
 void	free_file(t_file **f);
 void	print_grp(gid_t gid, int pad);
@@ -84,8 +84,8 @@ void	print_access(t_file *f);
 void	print_size(off_t size, t_size s);
 void	print_special_id(dev_t id, int min_pad, int maj_pad);
 void	print_date(time_t date);
-void 	print_name(const char *name, int type);
-void	display_file(t_file *f, t_options o);
+void 	print_name(t_file *f, t_options o);
+void	display_file(t_file *f, t_options o, bool print_total);
 void	long_file_display(t_file *f, t_size s, t_options o);
 void	long_dir_display();
 void	simple_file_display(t_file *file, t_options o);
@@ -96,6 +96,13 @@ void	handle_file(t_list *paths, t_options o);
 void	handle_dir(t_list *paths, t_options o);
 int		get_dir_content(t_file **files, struct dirent *dir, char *path);
 void	recursive(t_file *f, t_options o);
+void	print_not_found(t_list *f);
+void	ft_lstsort(t_list **list, int (*cmp)(t_list *a, t_list *b));
+int 	lst_alpha_cmp(t_list *a, t_list *b);
+void	MergeSort(t_file **headRef, int (*cmp)(t_file *a, t_file *b));
 t_file	*open_and_get(t_file *dir);
+int 	r_lexic_cmp(t_file *a, t_file *b);
+void	print_attribs(t_file *f);
+void	print_usage(char illegal);
 
 #endif

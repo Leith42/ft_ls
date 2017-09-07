@@ -6,7 +6,7 @@ void	print_date(time_t date)
 
 	if ((str = ft_strsub(ctime(&date), 4, 12)) == NULL)
 	{
-		perror("malloc");
+		print_error("malloc");
 		exit(EXIT_FAILURE);
 	}
 	ft_putstr(str);
@@ -42,5 +42,17 @@ void	print_grp(gid_t gid, int pad)
 	else
 	{
 		ft_printf("%*d  ", pad, gid);
+	}
+}
+
+void	print_not_found(t_list *f)
+{
+	ft_lstsort(&f, lst_alpha_cmp);
+	while (f != NULL)
+	{
+		ft_putstr("ft_ls: ");
+		ft_putstr(f->content);
+		ft_putstr(": No such file or directory\n");
+		f = f->next;
 	}
 }

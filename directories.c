@@ -17,7 +17,7 @@ t_file	*open_and_get(t_file *dir)
 	}
 	else
 	{
-		print_error(dir->path, "ft_ls: ");
+		print_error(dir->path);
 	}
 	return (dir_content);
 }
@@ -34,15 +34,15 @@ void	handle_dir_content(t_file *dir, t_options o)
 	manydir = dir->next != NULL ? true : false;
 	while (dir != NULL)
 	{
-		dir_content = open_and_get(dir);
-		if (dir_content != NULL)
+		if ((dir_content = open_and_get(dir)) != NULL)
 		{
 			endl == true ? ft_putchar('\n') : NULL;
 			if (manydir == true)
-			{
 				ft_printf("%s:\n", dir->name);
-			}
-			display_file(dir_content, o);
+			if (o.all == false && dir_content->next->next == NULL)
+				display_file(dir_content, o, false);
+			else
+				display_file(dir_content, o, true);
 			free_file(&dir_content);
 		}
 		dir = dir->next;
@@ -62,7 +62,7 @@ void	handle_dir(t_list *paths, t_options o)
 		paths = paths->next;
 	}
 	free_lst(paths);
-	sort(&dir, path_cmp);
+	sort(&dir, lexic_cmp);
 	if (o.time_sort == true)
 	{
 		sort(&dir, time_cmp);

@@ -13,9 +13,10 @@ static int	args_validity(char **argv)
 		{
 			while (argv[y][++x])
 			{
-				if (argv[y][x] != 'l' && argv[y][x] != 'a'
-					&& argv[y][x] != 'r' && argv[y][x] != 'R' && argv[y][x] != 't')
+				if (argv[y][x] != 'l' && argv[y][x] != 'a' && argv[y][x] != 'r'
+					&& argv[y][x] != 'R' && argv[y][x] != 't')
 				{
+					print_usage(argv[y][x]);
 					return (false);
 				}
 			}
@@ -34,7 +35,7 @@ int	stocks_path(char *argv, t_list **paths)
 	{
 		if ((*paths = ft_lstnew(argv, ft_strlen(argv) + 1)) == NULL)
 		{
-			print_error("malloc", "ft_ls: ");
+			print_error(argv);
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -46,7 +47,7 @@ int	stocks_path(char *argv, t_list **paths)
 		}
 		if ((tmp->next = ft_lstnew(argv, ft_strlen(argv) + 1)) == NULL)
 		{
-			print_error("malloc", "ft_ls: ");
+			print_error(argv);
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -84,10 +85,8 @@ static int stocks_args(char **argv, t_options *o, t_list **paths)
 
 int	args_parsing(char **argv, t_options *o, t_list **paths)
 {
-	if (args_validity(argv) == false
-		|| stocks_args(argv, o, paths) == false)
+	if (args_validity(argv) == false || stocks_args(argv, o, paths) == false)
 	{
-		//free_flags(flags);
 		return (false);
 	}
 	return (true);

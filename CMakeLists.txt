@@ -6,15 +6,16 @@ set(SOURCE_FILES
         args_parsing.c
         freedom.c
         error.c
-        alpha_sort.c
-        get_struct.c
+        file_sort.c
+        struct_manager.c
         printer.c
         size.c
-        #simple_display.c
         directories.c
         files.c
         printer2.c
         recursive.c
+        list_sort.c
+        print_attribs.c
         )
 
 add_executable(ft_ls ${SOURCE_FILES})
