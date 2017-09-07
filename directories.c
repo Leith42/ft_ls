@@ -62,14 +62,21 @@ void	handle_dir(t_list *paths, t_options o)
 		paths = paths->next;
 	}
 	free_lst(paths);
-	sort(&dir, lexic_cmp);
 	if (o.time_sort == true)
 	{
-		sort(&dir, time_cmp);
+		MergeSort(&dir, time_cmp);
+		if (o.reverse_sort == true)
+		{
+			reverse_sort(&dir);
+		}
 	}
 	else if (o.reverse_sort == true)
 	{
-		reverse_sort(&dir);
+		MergeSort(&dir, r_lexic_cmp);
+	}
+	else
+	{
+		MergeSort(&dir, lexic_cmp);
 	}
 	handle_dir_content(dir, o);
 }
