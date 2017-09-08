@@ -34,15 +34,16 @@ void	handle_dir_content(t_file *dir, t_options o)
 	manydir = dir->next != NULL ? true : false;
 	while (dir != NULL)
 	{
+		endl == true ? ft_putchar('\n') : 0;
+		manydir == true ? ft_printf("%s:\n", dir->name) : 0;
 		if ((dir_content = open_and_get(dir)) != NULL)
 		{
-			endl == true ? ft_putchar('\n') : NULL;
-			if (manydir == true)
-				ft_printf("%s:\n", dir->name);
 			if (o.all == false && dir_content->next->next == NULL)
 				display_file(dir_content, o, false);
 			else
 				display_file(dir_content, o, true);
+			if (o.recursive == true)
+				recursive(dir_content, o);
 			free_file(&dir_content);
 		}
 		dir = dir->next;

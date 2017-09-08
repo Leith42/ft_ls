@@ -10,19 +10,20 @@ SRC_PATH = ./
 RM = rm -f
 
 SRC_FILES = \
-		directories.c \
-		files.c \
-		main.c \
-		freedom.c \
-		printer.c \
-		printer2.c \
-		recursive.c \
-		error.c \
-		size.c \
-		struct_manager.c \
-		list_sort.c \
-		file_sort.c \
-		args_parsing.c \
+        main.c \
+        args_parsing.c \
+        freedom.c \
+        error.c \
+        file_sort.c \
+        struct_manager.c \
+        printer.c \
+        size.c \
+        directories.c \
+        files.c \
+        printer2.c \
+        recursive.c \
+        list_sort.c \
+        print_attribs.c \
 
 SRC_OBJ = $(SRC_FILES:.c=.o)
 SRC = $(addprefix $(SRC_PATH), $(SRC_OBJ))

@@ -20,7 +20,7 @@ static void filter(t_list **files, t_list **directories, t_list **not_found, t_l
 			}
 			else if (errno == EACCES)
 			{
-				print_error(paths->content);
+				stocks_path(paths->content, directories);
 			}
 			else
 			{
@@ -53,6 +53,7 @@ void ft_ls(t_list *paths, t_options o)
 	if (not_found != NULL)
 	{
 		print_not_found(not_found);
+		free_lst(not_found);
 	}
 	if (files != NULL)
 	{
@@ -62,12 +63,12 @@ void ft_ls(t_list *paths, t_options o)
 	{
 		ft_putchar('\n');
 	}
-	free_lst(files);
 	if (directories != NULL)
 	{
 		handle_dir(directories, o);
 	}
 	free_lst(directories);
+	free_lst(files);
 }
 
 int main(int argc, char **argv)
@@ -82,6 +83,7 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	ft_ls(paths, o);
-	(void)argc;
+	(void) argc;
+	//while(1);
 	return (true);
 }

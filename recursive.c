@@ -20,6 +20,7 @@ void	recursive(t_file *f, t_options o)
 					display_file(content, o, false);
 				else
 					display_file(content, o, true);
+				recursive(content, o);
 				free_file(&content);
 			}
 		}
