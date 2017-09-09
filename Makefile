@@ -6,7 +6,7 @@ LIBFT_BIN = $(LIBFT_PATH)libft.a
 INCLUDE = ./include/
 HEADER = -I$(INCLUDE) -I$(LIBFT_PATH)include/
 CFLAGS = -Wall -Wextra $(HEADER)
-SRC_PATH = ./
+SRC_PATH = ./src/
 RM = rm -f
 
 SRC_FILES = \
@@ -14,7 +14,7 @@ SRC_FILES = \
         args_parsing.c \
         freedom.c \
         error.c \
-        file_sort.c \
+        comparison.c \
         struct_manager.c \
         printer.c \
         size.c \
@@ -24,13 +24,14 @@ SRC_FILES = \
         recursive.c \
         list_sort.c \
         print_attribs.c \
+		sorting.c
 
 SRC_OBJ = $(SRC_FILES:.c=.o)
 SRC = $(addprefix $(SRC_PATH), $(SRC_OBJ))
 
 all: $(NAME)
 
-$(NAME): $(SRC_OBJ)
+$(NAME): $(SRC)
 	make -C $(LIBFT_PATH)
 	$(CC) $(CFLAGS) $(SRC) -o $@ $(LIBFT_BIN)
 	echo "\033[1;34m$(NAME)\t\t\033[1;33mCompilation\t\033[0;32m[OK]\033[0m"

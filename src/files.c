@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   files.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/09 18:50:15 by aazri             #+#    #+#             */
+/*   Updated: 2017/09/09 18:50:36 by aazri            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_ls.h"
 
 void	long_file_display(t_file *f, t_size s, t_options o)
 {
 	while (f != NULL)
 	{
-		if (!(f->name[0] == '.' && o.all == false))
+		if (f->stat_statue != ERROR && !(f->name[0] == '.' && o.all == false))
 		{
 			print_access(f);
 			print_attribs(f);
@@ -22,15 +34,15 @@ void	long_file_display(t_file *f, t_size s, t_options o)
 	}
 }
 
-void	simple_file_display(t_file *file, t_options o)
+void	simple_file_display(t_file *f, t_options o)
 {
-	while (file != NULL)
+	while (f != NULL)
 	{
-		if (!(o.all == false && file->name[0] == '.'))
+		if (f->stat_statue != ERROR && !(o.all == false && f->name[0] == '.'))
 		{
-			print_name(file, o);
+			print_name(f, o);
 		}
-		file = file->next;
+		f = f->next;
 	}
 }
 
@@ -40,14 +52,14 @@ void	display_file(t_file *f, t_options o, bool print_total)
 
 	if (o.time_sort == true)
 	{
-		MergeSort(&f, time_cmp);
+		ft_mergesort(&f, time_cmp);
 		if (o.reverse_sort == true)
 			reverse_sort(&f);
 	}
 	else if (o.reverse_sort == true)
-		MergeSort(&f, r_lexic_cmp);
+		ft_mergesort(&f, r_lexic_cmp);
 	else
-		MergeSort(&f, lexic_cmp);
+		ft_mergesort(&f, lexic_cmp);
 	if (o.l_display == true)
 	{
 		s = get_size(f, o);
@@ -78,5 +90,5 @@ void	handle_file(t_list *paths, t_options o)
 	{
 		display_file(files, o, false);
 	}
-	free_file(&files);
+	free_file(files);
 }

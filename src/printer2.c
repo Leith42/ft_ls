@@ -1,10 +1,22 @@
-#include "ft_ls.h"
-# define BUF_SIZE 1024
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   printer2.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/09 18:31:47 by aazri             #+#    #+#             */
+/*   Updated: 2017/09/09 18:32:58 by aazri            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void 	print_name(t_file *f, t_options o)
+#include "ft_ls.h"
+#define BUF_SIZE 1024
+
+void	print_name(t_file *f, t_options o)
 {
-	ssize_t len;
-	char link_buf[BUF_SIZE];
+	ssize_t	len;
+	char	link_buf[BUF_SIZE];
 
 	if (S_ISDIR(f->statbuf.st_mode))
 		ft_printf("%s%s%s\n", "\x1b[36m", f->name, "\x1b[0m");
@@ -35,11 +47,11 @@ void	print_usr(uid_t uid, int pad)
 
 	if ((usr = getpwuid(uid)) != NULL)
 	{
-		ft_printf("%*s  ", pad, usr->pw_name);
+		ft_printf("%-*s  ", pad, usr->pw_name);
 	}
 	else
 	{
-		ft_printf("%*d  ", pad, uid);
+		ft_printf("%-*d  ", pad, uid);
 	}
 }
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   size.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/09 18:30:04 by aazri             #+#    #+#             */
+/*   Updated: 2017/09/09 18:54:10 by aazri            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_ls.h"
 
 static void	get_special_id_size(t_size *s, t_file *f)
@@ -5,8 +17,8 @@ static void	get_special_id_size(t_size *s, t_file *f)
 	int min_len;
 	int maj_len;
 
-	min_len = (int)ft_nblen(minor(f->statbuf.st_rdev), BASE_DECIMAL);
-	maj_len = (int)ft_nblen(major(f->statbuf.st_rdev), BASE_DECIMAL);
+	min_len = (int)ft_nblen(MINOR(f->statbuf.st_rdev), BASE_DECIMAL);
+	maj_len = (int)ft_nblen(MAJOR(f->statbuf.st_rdev), BASE_DECIMAL);
 	if (s->min_pad < min_len)
 	{
 		s->min_pad = min_len;
@@ -19,8 +31,8 @@ static void	get_special_id_size(t_size *s, t_file *f)
 
 static void	get_usr_size(t_size *s, t_file *f)
 {
-	int pw_name;
-	struct passwd *p;
+	int				pw_name;
+	struct passwd	*p;
 
 	if ((p = getpwuid(f->statbuf.st_uid)) != NULL)
 	{
@@ -38,8 +50,8 @@ static void	get_usr_size(t_size *s, t_file *f)
 
 static void	get_grp_size(t_size *s, t_file *f)
 {
-	int gr_name;
-	struct group *g;
+	int				gr_name;
+	struct group	*g;
 
 	if ((g = getgrgid(f->statbuf.st_gid)) != NULL)
 	{
@@ -79,7 +91,7 @@ static void	get_current(t_file *f, t_size *s)
 	s->total += f->statbuf.st_blocks;
 }
 
-t_size	get_size(t_file *f, t_options o)
+t_size		get_size(t_file *f, t_options o)
 {
 	t_size size;
 

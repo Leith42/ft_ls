@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   args_parsing.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/09 18:06:25 by aazri             #+#    #+#             */
+/*   Updated: 2017/09/09 18:51:10 by aazri            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_ls.h"
 
 static int	args_validity(char **argv)
@@ -26,7 +38,7 @@ static int	args_validity(char **argv)
 	return (true);
 }
 
-int	stocks_path(char *argv, t_list **paths)
+int			stocks_path(char *argv, t_list **paths)
 {
 	t_list *tmp;
 
@@ -54,7 +66,7 @@ int	stocks_path(char *argv, t_list **paths)
 	return (true);
 }
 
-static int stocks_args(char **argv, t_options *o, t_list **paths)
+static int	stocks_args(char **argv, t_options *o, t_list **paths)
 {
 	int y;
 
@@ -83,7 +95,7 @@ static int stocks_args(char **argv, t_options *o, t_list **paths)
 	return (*paths == NULL ? stocks_path(".", paths) : true);
 }
 
-int	args_parsing(char **argv, t_options *o, t_list **paths)
+int			args_parsing(char **argv, t_options *o, t_list **paths)
 {
 	if (args_validity(argv) == false || stocks_args(argv, o, paths) == false)
 	{
