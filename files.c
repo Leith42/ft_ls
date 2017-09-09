@@ -45,10 +45,7 @@ void	display_file(t_file *f, t_options o, bool print_total)
 			reverse_sort(&f);
 	}
 	else if (o.reverse_sort == true)
-	{
-		//MergeSort(&f, lexic_cmp);
 		MergeSort(&f, r_lexic_cmp);
-	}
 	else
 		MergeSort(&f, lexic_cmp);
 	if (o.l_display == true)
@@ -60,6 +57,9 @@ void	display_file(t_file *f, t_options o, bool print_total)
 	}
 	else
 		simple_file_display(f, o);
+	if (o.recursive == true)
+		recursive(f, o);
+	free_file(f);
 }
 
 void	handle_file(t_list *paths, t_options o)

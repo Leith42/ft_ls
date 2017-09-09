@@ -83,7 +83,7 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	ft_ls(paths, o);
-	(void) argc;
-	//while(1);
+	(void)argc;
+	while(1);
 	return (true);
 }

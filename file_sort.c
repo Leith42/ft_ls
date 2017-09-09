@@ -137,7 +137,7 @@ void MergeSort(t_file **headRef, int (*cmp)(t_file *a, t_file *b))
 
 	if ((head == NULL) || (head->next == NULL))
 	{
-		return;
+		return ;
 	}
 	FrontBackSplit(head, &a, &b);
 	MergeSort(&a, cmp);

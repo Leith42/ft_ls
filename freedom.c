@@ -9,17 +9,17 @@ void	lstdel(void *content, size_t n)
 	(void)n;
 }
 
-void	free_file(t_file **f)
+void	free_file(t_file *f)
 {
-	void *tmp;
+	t_file *tmp;
 
-	while (f && *f)
+	while (f)
 	{
-		tmp = *f;
-		ft_strdel(&(*f)->path);
-		ft_strdel(&(*f)->name);
-		*f = (*f)->next;
-		ft_memdel(&tmp);
+		tmp = f->next;
+		free(f->path);
+		free(f->name);
+		free(f);
+		f = tmp;
 	}
 }
 

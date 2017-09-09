@@ -13,14 +13,11 @@ void	print_attribs(t_file *f)
 	}
 	else if ((acl = acl_get_link_np(f->path, ACL_TYPE_EXTENDED)) != NULL)
 	{
-		if (acl_get_entry(acl, ACL_FIRST_ENTRY, &dummy) == -1)
-		{
-			acl_free(acl);
-		}
-		else
+		if (acl_get_entry(acl, ACL_FIRST_ENTRY, &dummy) != -1)
 		{
 			ft_putstr("+ ");
 		}
+		acl_free(acl);
 	}
 	else
 	{

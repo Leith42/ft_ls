@@ -42,14 +42,11 @@ void	handle_dir_content(t_file *dir, t_options o)
 				display_file(dir_content, o, false);
 			else
 				display_file(dir_content, o, true);
-			if (o.recursive == true)
-				recursive(dir_content, o);
-			free_file(&dir_content);
 		}
 		dir = dir->next;
 		endl = true;
 	}
-	free_file(&dir_tmp);
+	free_file(dir_tmp);
 }
 
 void	handle_dir(t_list *paths, t_options o)
@@ -67,17 +64,11 @@ void	handle_dir(t_list *paths, t_options o)
 	{
 		MergeSort(&dir, time_cmp);
 		if (o.reverse_sort == true)
-		{
 			reverse_sort(&dir);
-		}
 	}
 	else if (o.reverse_sort == true)
-	{
 		MergeSort(&dir, r_lexic_cmp);
-	}
 	else
-	{
 		MergeSort(&dir, lexic_cmp);
-	}
 	handle_dir_content(dir, o);
 }

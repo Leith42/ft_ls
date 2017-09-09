@@ -5,7 +5,7 @@ LIBFT_PATH = ./libft/
 LIBFT_BIN = $(LIBFT_PATH)libft.a
 INCLUDE = ./include/
 HEADER = -I$(INCLUDE) -I$(LIBFT_PATH)include/
-CFLAGS = -Wall -Wextra -Werror $(HEADER)
+CFLAGS = -Wall -Wextra $(HEADER)
 SRC_PATH = ./
 RM = rm -f
 

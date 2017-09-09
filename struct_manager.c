@@ -9,12 +9,12 @@ static t_file	*new_file(char *name, char *path)
 		|| (new->name = ft_strdup(name)) == NULL)
 	{
 		print_error(path);
-		free_file(&new);
+		free_file(new);
 		exit(EXIT_FAILURE);
 	}
 	if (lstat(new->path, &new->statbuf) < 0)
 	{
-		free_file(&new);
+		free_file(new);
 		print_error(path);
 		exit(EXIT_FAILURE);
 	}

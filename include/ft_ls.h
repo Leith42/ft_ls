@@ -76,7 +76,7 @@ void	sort(t_file **list, int (*cmp)(t_file *f1, t_file *f2));
 void	reverse_sort(t_file **f);
 int 	lexic_cmp(t_file *a, t_file *b);
 int 	time_cmp(t_file *a, t_file *b);
-void	free_file(t_file **f);
+void	free_file(t_file *f);
 void	print_grp(gid_t gid, int pad);
 void	print_usr(uid_t uid, int pad);
 void	print_links(int links, int pad);
