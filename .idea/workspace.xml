@@ -12,69 +12,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bbbaff7-016e-49aa-ab86-3d062ff7dcf8" name="Default" comment="Merge branch 'master' of https://github.com/Leith42/ft_ls">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.8.2/CMakeDetermineCompilerABI_C.bin" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.8.2/CMakeDetermineCompilerABI_CXX.bin" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/feature_tests.bin" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/ft_ls" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeCache.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.8.2/CMakeCCompiler.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.8.2/CMakeCXXCompiler.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.8.2/CMakeSystem.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.8.2/CompilerIdC/CMakeCCompilerId.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.8.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeDirectoryInformation.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/clion-environment.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/clion-log.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/cmake.check_cache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/feature_tests.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/feature_tests.cxx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/ft_ls.dir/C.includecache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/ft_ls.dir/DependInfo.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/ft_ls.dir/build.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/ft_ls.dir/cmake_clean.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/ft_ls.dir/depend.internal" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/ft_ls.dir/depend.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/ft_ls.dir/flags.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/ft_ls.dir/link.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/ft_ls.dir/progress.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/CMakeFiles/progress.marks" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/Makefile" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/Project.cbp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/cmake_install.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/comparison.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/directories.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/error.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/freedom.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/list_sort.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/print_attribs.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/printer.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/recursive.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sorting.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/struct_manager.c" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/directories.c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/error.c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file_sort.c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/freedom.c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/list_sort.c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/print_attribs.c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/printer.c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recursive.c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/struct_manager.c" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/args_parsing.c" afterPath="$PROJECT_DIR$/src/args_parsing.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/files.c" afterPath="$PROJECT_DIR$/src/files.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/main.c" afterPath="$PROJECT_DIR$/src/main.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/printer2.c" afterPath="$PROJECT_DIR$/src/printer2.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/size.c" afterPath="$PROJECT_DIR$/src/size.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libft" afterPath="$PROJECT_DIR$/libft" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeCache.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.8.2/CMakeCCompiler.cmake" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.8.2/CMakeCXXCompiler.cmake" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.8.2/CMakeDetermineCompilerABI_C.bin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.8.2/CMakeDetermineCompilerABI_CXX.bin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.8.2/CMakeSystem.cmake" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.8.2/CompilerIdC/CMakeCCompilerId.c" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.8.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/clion-environment.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/clion-log.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/cmake.check_cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/feature_tests.bin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/feature_tests.c" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/feature_tests.cxx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/ft_ls.dir/C.includecache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/ft_ls.dir/DependInfo.cmake" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/ft_ls.dir/build.make" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/ft_ls.dir/cmake_clean.cmake" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/ft_ls.dir/depend.internal" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/ft_ls.dir/depend.make" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/ft_ls.dir/flags.make" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/ft_ls.dir/link.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/ft_ls.dir/progress.make" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/progress.marks" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Makefile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Project.cbp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/cmake_install.cmake" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/ft_ls" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Makefile" afterPath="$PROJECT_DIR$/Makefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/ft_ls.h" afterPath="$PROJECT_DIR$/include/ft_ls.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -113,7 +85,7 @@
         <entry file="file://$PROJECT_DIR$/src/args_parsing.c">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="301">
-              <caret line="39" column="1" lean-forward="true" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
+              <caret line="39" column="1" lean-forward="false" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -122,8 +94,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="46" column="6" lean-forward="true" selection-start-line="46" selection-start-column="6" selection-end-line="46" selection-end-column="6" />
+            <state relative-caret-position="474">
+              <caret line="46" column="6" lean-forward="false" selection-start-line="46" selection-start-column="6" selection-end-line="46" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -523,7 +495,7 @@
       <workItem from="1504959901371" duration="37000" />
       <workItem from="1504960645052" duration="6485000" />
       <workItem from="1504973242985" duration="850000" />
-      <workItem from="1505060275866" duration="14999000" />
+      <workItem from="1505060275866" duration="15231000" />
     </task>
     <task id="LOCAL-00001" summary="Long display (for files only, not dir) is managed.&#10;Next step is directories.">
       <created>1504200823167</created>
@@ -543,7 +515,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45823000" />
+    <option name="totallyTimeSpent" value="46055000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="418" y="34" width="1906" height="1112" extended-state="0" />
@@ -805,15 +777,15 @@
     <entry file="file://$PROJECT_DIR$/src/args_parsing.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
-          <caret line="39" column="1" lean-forward="true" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
+          <caret line="39" column="1" lean-forward="false" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="46" column="6" lean-forward="true" selection-start-line="46" selection-start-column="6" selection-end-line="46" selection-end-column="6" />
+        <state relative-caret-position="474">
+          <caret line="46" column="6" lean-forward="false" selection-start-line="46" selection-start-column="6" selection-end-line="46" selection-end-column="6" />
           <folding />
         </state>
       </provider>
