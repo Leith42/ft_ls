@@ -1,0 +1,3 @@
+/Users/Amine/CLionProjects/ft_ls/build/CMakeFiles/rebuild_cache.dir
+/Users/Amine/CLionProjects/ft_ls/build/CMakeFiles/edit_cache.dir
+/Users/Amine/CLionProjects/ft_ls/build/CMakeFiles/ft_ls.dir

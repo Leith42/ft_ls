@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Project"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="clang"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/Amine/CLionProjects/ft_ls/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/Users/Amine/CLionProjects/ft_ls/build/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/Users/Amine/CLionProjects/ft_ls/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/Users/Amine/CLionProjects/ft_ls/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/Users/Amine/CLionProjects/ft_ls/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/Amine/CLionProjects/ft_ls/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/Users/Amine/CLionProjects/ft_ls/build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/Users/Amine/CLionProjects/ft_ls/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/Users/Amine/CLionProjects/ft_ls/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/Users/Amine/CLionProjects/ft_ls/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/Amine/CLionProjects/ft_ls/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/Users/Amine/CLionProjects/ft_ls/build/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/Users/Amine/CLionProjects/ft_ls/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/Users/Amine/CLionProjects/ft_ls/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/Users/Amine/CLionProjects/ft_ls/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ft_ls">
+				<Option output="/Users/Amine/CLionProjects/ft_ls/build/ft_ls" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Amine/CLionProjects/ft_ls/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/Amine/CLionProjects/ft_ls/ft_ls"/>
+					<Add directory="/Users/Amine/CLionProjects/ft_ls/include"/>
+					<Add directory="/Users/Amine/CLionProjects/ft_ls/libft/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/Users/Amine/CLionProjects/ft_ls/build/Makefile&quot;  VERBOSE=1 ft_ls"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/Users/Amine/CLionProjects/ft_ls/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/Users/Amine/CLionProjects/ft_ls/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/Users/Amine/CLionProjects/ft_ls/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ft_ls/fast">
+				<Option output="/Users/Amine/CLionProjects/ft_ls/build/ft_ls" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Amine/CLionProjects/ft_ls/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/Amine/CLionProjects/ft_ls/ft_ls"/>
+					<Add directory="/Users/Amine/CLionProjects/ft_ls/include"/>
+					<Add directory="/Users/Amine/CLionProjects/ft_ls/libft/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/Users/Amine/CLionProjects/ft_ls/build/Makefile&quot;  VERBOSE=1 ft_ls/fast"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/Users/Amine/CLionProjects/ft_ls/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/Users/Amine/CLionProjects/ft_ls/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/Users/Amine/CLionProjects/ft_ls/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/Amine/CLionProjects/ft_ls/src/args_parsing.c">
+			<Option target="ft_ls"/>
+		</Unit>
+		<Unit filename="/Users/Amine/CLionProjects/ft_ls/src/comparison.c">
+			<Option target="ft_ls"/>
+		</Unit>
+		<Unit filename="/Users/Amine/CLionProjects/ft_ls/src/directories.c">
+			<Option target="ft_ls"/>
+		</Unit>
+		<Unit filename="/Users/Amine/CLionProjects/ft_ls/src/error.c">
+			<Option target="ft_ls"/>
+		</Unit>
+		<Unit filename="/Users/Amine/CLionProjects/ft_ls/src/files.c">
+			<Option target="ft_ls"/>
+		</Unit>
+		<Unit filename="/Users/Amine/CLionProjects/ft_ls/src/freedom.c">
+			<Option target="ft_ls"/>
+		</Unit>
+		<Unit filename="/Users/Amine/CLionProjects/ft_ls/src/list_sort.c">
+			<Option target="ft_ls"/>
+		</Unit>
+		<Unit filename="/Users/Amine/CLionProjects/ft_ls/src/main.c">
+			<Option target="ft_ls"/>
+		</Unit>
+		<Unit filename="/Users/Amine/CLionProjects/ft_ls/src/print_attribs.c">
+			<Option target="ft_ls"/>
+		</Unit>
+		<Unit filename="/Users/Amine/CLionProjects/ft_ls/src/printer.c">
+			<Option target="ft_ls"/>
+		</Unit>
+		<Unit filename="/Users/Amine/CLionProjects/ft_ls/src/printer2.c">
+			<Option target="ft_ls"/>
+		</Unit>
+		<Unit filename="/Users/Amine/CLionProjects/ft_ls/src/recursive.c">
+			<Option target="ft_ls"/>
+		</Unit>
+		<Unit filename="/Users/Amine/CLionProjects/ft_ls/src/size.c">
+			<Option target="ft_ls"/>
+		</Unit>
+		<Unit filename="/Users/Amine/CLionProjects/ft_ls/src/sorting.c">
+			<Option target="ft_ls"/>
+		</Unit>
+		<Unit filename="/Users/Amine/CLionProjects/ft_ls/src/struct_manager.c">
+			<Option target="ft_ls"/>
+		</Unit>
+		<Unit filename="/Users/Amine/CLionProjects/ft_ls/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

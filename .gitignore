@@ -44,5 +44,6 @@ test
 test2
 .idea
 build/
+libft/
 Would skip repository test/
 Would skip repository test2/
