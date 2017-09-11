@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/09 18:33:05 by aazri             #+#    #+#             */
-/*   Updated: 2017/09/09 19:05:55 by aazri            ###   ########.fr       */
+/*   Updated: 2017/09/11 13:17:09 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,28 @@
 
 void	print_date(time_t date)
 {
-	char *long_format;
-	char *str;
-	char *year;
-	time_t current_time;
+	char	*long_format;
+	char	*str;
+	char	*year;
+	time_t	current_time;
 
 	long_format = ctime(&date);
 	if ((current_time = time(NULL)) == ERROR)
-	{
-		print_error("time");
 		exit(EXIT_FAILURE);
-	}
 	if (current_time - date > SIX_MONTHS)
 	{
 		if ((year = ft_strsub(long_format, 20, 4)) == NULL
 			|| (str = ft_strsub(long_format, 4, 6)) == NULL)
-		{
 			exit(EXIT_FAILURE);
-		}
-		ft_printf("%s  %s", str, year);
+		ft_printf("%s  %s ", str, year);
 		free(year);
 	}
 	else
 	{
 		if ((str = ft_strsub(long_format, 4, 12)) == NULL)
 			exit(EXIT_FAILURE);
-		ft_putstr(str);
+		ft_printf("%s ", str);
 	}
-	ft_putchar(' ');
 	free(str);
 }
 

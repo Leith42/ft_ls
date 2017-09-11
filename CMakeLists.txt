@@ -17,6 +17,7 @@ set(SOURCE_FILES
         src/size.c
         src/sorting.c
         src/struct_manager.c
+        src/comparison2.c
         )
 
 add_executable(ft_ls ${SOURCE_FILES})

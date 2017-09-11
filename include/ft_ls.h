@@ -51,6 +51,7 @@ typedef struct		s_options
 	bool			time_sort;
 	bool			size_sort;
 	bool			creation_sort;
+	bool			access_sort;
 	bool			all;
 }					t_options;
 
@@ -102,6 +103,7 @@ void				print_not_found(t_list *f);
 /*
 ** SORTING:
 */
+
 void				reverse_sort(t_file **f);
 int					lexic_cmp(t_file *a, t_file *b);
 int					time_cmp(t_file *a, t_file *b);
@@ -111,7 +113,9 @@ void				ft_mergesort(t_file **h, int (*cmp)(t_file *a, t_file *b));
 int					r_lexic_cmp(t_file *a, t_file *b);
 int					size_cmp(t_file *a, t_file *b);
 int					creation_cmp(t_file *a, t_file *b);
-void				sort_files(t_file *f, t_options o);
+int					access_cmp(t_file *a, t_file *b);
+void				sort_files(t_file **f, t_options o);
+
 /*
 ** UTILS:
 */

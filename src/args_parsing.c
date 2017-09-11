@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/09 18:06:25 by aazri             #+#    #+#             */
-/*   Updated: 2017/09/09 18:51:10 by aazri            ###   ########.fr       */
+/*   Updated: 2017/09/11 13:21:42 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ static int	args_validity(char **argv)
 			while (argv[y][++x])
 			{
 				if (argv[y][x] != 'l' && argv[y][x] != 'a' && argv[y][x] != 'r'
-					&& argv[y][x] != 'R' && argv[y][x] != 't' && argv[y][x] != 'S'
-					&& argv[y][x] != 'U')
+					&& argv[y][x] != 'R' && argv[y][x] != 't'
+					&& argv[y][x] != 'S' && argv[y][x] != 'U'
+					&& argv[y][x] != 'u')
 				{
 					print_usage(argv[y][x]);
 					return (false);
@@ -76,20 +77,18 @@ static int	stocks_args(char **argv, t_options *o, t_list **paths)
 	{
 		if (argv[y][0] == '-' && argv[y][1] != '\0')
 		{
-			if (ft_strchr(argv[y], 'l') != NULL)
-				o->l_display = true;
-			if (ft_strchr(argv[y], 'r') != NULL)
-				o->reverse_sort = true;
-			if (ft_strchr(argv[y], 'R') != NULL)
-				o->recursive = true;
-			if (ft_strchr(argv[y], 'a') != NULL)
-				o->all = true;
-			if (ft_strchr(argv[y], 't') != NULL)
-				o->time_sort = true;
-			if (ft_strchr(argv[y], 'S') != NULL)
-				o->size_sort = true;
-			if (ft_strchr(argv[y], 'U') != NULL)
-				o->creation_sort = true;
+			o->l_display = ft_strchr(argv[y], 'l') != 0 ? true : o->l_display;
+			o->reverse_sort = ft_strchr(argv[y], 'r') \
+			!= 0 ? true : o->reverse_sort;
+			o->recursive = ft_strchr(argv[y], 'R') != 0 ? true : o->recursive;
+			o->all = ft_strchr(argv[y], 'a') != 0 ? true : o->all;
+			o->time_sort = ft_strchr(argv[y], 't') != 0 ? true : o->time_sort;
+			o->size_sort = ft_strchr(argv[y], 'S') \
+			!= 0 ? true : o->size_sort;
+			o->creation_sort = ft_strchr(argv[y], 'U') \
+			!= 0 ? true : o->creation_sort;
+			o->access_sort = ft_strchr(argv[y], 'u') \
+			!= 0 ? true : o->access_sort;
 		}
 		else
 			stocks_path(argv[y], paths);

@@ -15,7 +15,7 @@
 void		print_usage(char illegal)
 {
 	ft_printf("ft_ls: illegal option -- %c\n", illegal);
-	ft_putendl("usage: ft_ls [-lrRatSU] [file ...]");
+	ft_putendl("usage: ft_ls [-lrRatSUu] [file ...]");
 }
 
 static void	filter(t_list **files, t_list **directories, \

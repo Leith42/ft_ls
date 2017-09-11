@@ -46,52 +46,39 @@ void	simple_file_display(t_file *f, t_options o)
 	}
 }
 
-void	sort_files(t_file *f, t_options o)
+void	sort_files(t_file **f, t_options o)
 {
 	if (o.size_sort == true)
 	{
-		ft_mergesort(&f, size_cmp);
-		o.reverse_sort == true ? reverse_sort(&f) : 0;
+		ft_mergesort(f, size_cmp);
+		o.reverse_sort == true ? reverse_sort(f) : 0;
 	}
 	else if (o.time_sort == true)
 	{
-		ft_mergesort(&f, time_cmp);
-		o.reverse_sort == true ? reverse_sort(&f) : 0;
+		ft_mergesort(f, time_cmp);
+		o.reverse_sort == true ? reverse_sort(f) : 0;
 	}
 	else if (o.creation_sort == true)
 	{
-		ft_mergesort(&f, creation_cmp);
-		o.reverse_sort == true ? reverse_sort(&f) : 0;
+		ft_mergesort(f, creation_cmp);
+		o.reverse_sort == true ? reverse_sort(f) : 0;
+	}
+	else if (o.access_sort == true)
+	{
+		ft_mergesort(f, access_cmp);
+		o.reverse_sort == true ? reverse_sort(f) : 0;
 	}
 	else if (o.reverse_sort == true)
-		ft_mergesort(&f, r_lexic_cmp);
+		ft_mergesort(f, r_lexic_cmp);
 	else
-		ft_mergesort(&f, lexic_cmp);
+		ft_mergesort(f, lexic_cmp);
 }
 
 void	display_file(t_file *f, t_options o, bool print_total)
 {
 	t_size s;
 
-	if (o.size_sort == true)
-	{
-		ft_mergesort(&f, size_cmp);
-		o.reverse_sort == true ? reverse_sort(&f) : 0;
-	}
-	else if (o.time_sort == true)
-	{
-		ft_mergesort(&f, time_cmp);
-		o.reverse_sort == true ? reverse_sort(&f) : 0;
-	}
-	else if (o.creation_sort == true)
-	{
-		ft_mergesort(&f, creation_cmp);
-		o.reverse_sort == true ? reverse_sort(&f) : 0;
-	}
-	else if (o.reverse_sort == true)
-		ft_mergesort(&f, r_lexic_cmp);
-	else
-		ft_mergesort(&f, lexic_cmp);
+	sort_files(&f, o);
 	if (o.l_display == true)
 	{
 		s = get_size(f, o);

@@ -5,7 +5,7 @@ LIBFT_PATH = ./libft/
 LIBFT_BIN = $(LIBFT_PATH)libft.a
 INCLUDE = ./include/
 HEADER = -I$(INCLUDE) -I$(LIBFT_PATH)include/
-CFLAGS = -Wall -Wextra $(HEADER)
+CFLAGS = -Wall -Wextra -Werror $(HEADER)
 SRC_PATH = ./src/
 RM = rm -f
 
@@ -24,7 +24,8 @@ SRC_FILES = \
         recursive.c \
         list_sort.c \
         print_attribs.c \
-		sorting.c
+		sorting.c \
+		comparison2.c
 
 SRC_OBJ = $(SRC_FILES:.c=.o)
 SRC = $(addprefix $(SRC_PATH), $(SRC_OBJ))

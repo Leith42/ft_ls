@@ -6,7 +6,7 @@
 /*   By: aazri <aazri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/09 18:04:25 by aazri             #+#    #+#             */
-/*   Updated: 2017/09/09 18:05:59 by aazri            ###   ########.fr       */
+/*   Updated: 2017/09/11 13:25:09 by aazri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,36 +61,37 @@ void		handle_dir_content(t_file *dir, t_options o)
 	free_file(dir_tmp);
 }
 
-void		sort_dir(t_file *dir, t_options o)
+void		sort_dir(t_file **dir, t_options o)
 {
 	if (o.size_sort == true)
 	{
-		ft_mergesort(&dir, size_cmp);
-		if (o.reverse_sort == true)
-			reverse_sort(&dir);
+		ft_mergesort(dir, size_cmp);
+		o.reverse_sort == true ? reverse_sort(dir) : 0;
 	}
 	else if (o.time_sort == true)
 	{
-		ft_mergesort(&dir, time_cmp);
-		if (o.reverse_sort == true)
-			reverse_sort(&dir);
+		ft_mergesort(dir, time_cmp);
+		o.reverse_sort == true ? reverse_sort(dir) : 0;
 	}
 	else if (o.creation_sort == true)
 	{
-		ft_mergesort(&dir, creation_cmp);
-		if (o.reverse_sort == true)
-			reverse_sort(&dir);
+		ft_mergesort(dir, creation_cmp);
+		o.reverse_sort == true ? reverse_sort(dir) : 0;
+	}
+	else if (o.access_sort == true)
+	{
+		ft_mergesort(dir, access_cmp);
+		o.reverse_sort == true ? reverse_sort(dir) : 0;
 	}
 	else if (o.reverse_sort == true)
-		ft_mergesort(&dir, r_lexic_cmp);
+		ft_mergesort(dir, r_lexic_cmp);
 	else
-		ft_mergesort(&dir, lexic_cmp);
+		ft_mergesort(dir, lexic_cmp);
 }
 
 void		handle_dir(t_list *paths, t_options o)
 {
 	t_file *dir;
-	t_file *test;
 
 	dir = NULL;
 	while (paths != NULL)
@@ -99,8 +100,6 @@ void		handle_dir(t_list *paths, t_options o)
 		paths = paths->next;
 	}
 	free_lst(paths);
-	test = dir;
-	sort_dir(dir, o);
-	dir = test;
+	sort_dir(&dir, o);
 	handle_dir_content(dir, o);
 }

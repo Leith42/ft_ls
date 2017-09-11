@@ -65,7 +65,6 @@ static t_file	*ft_sortedmerge(t_file *a, t_file *b, \
 {
 	t_file *result;
 
-	result = NULL;
 	if (a == NULL)
 		return (b);
 	else if (b == NULL)
