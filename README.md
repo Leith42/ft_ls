@@ -6,7 +6,7 @@ ACL and extended attributes are managed.
 ```
 usage: ft_ls [-lrRatSUu] [file ...]
 ```
-Ft_ls can be used exactly as the original command with the following options :
+ft_ls can be used exactly as the original command with the following options :
 
 |Option|Action
 |-|-|
