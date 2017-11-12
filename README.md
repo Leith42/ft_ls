@@ -1,6 +1,5 @@
 # ft_ls
-My own implementation of the most used Unix command `ls` with some of its options.
-ACL and extended attributes are managed.
+My own implementation of the most used Unix command `ls` with some of its options. ACL and extended attributes are managed.
 
 ## Using it
 ```
