@@ -16,4 +16,4 @@ ft_ls can be used exactly as the original command with the following options :
 |`-t`|   sort by modification time
 |`-S`|   sort by file size, largest first
 |`-U`|   sort by creation time
-|`-U`|   sort by access time
+|`-u`|   sort by access time
